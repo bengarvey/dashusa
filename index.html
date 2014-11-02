@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Dash USA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+</head>
+  <body>
+    <h1>USA Dashboard</h1>
+    <div id="unemployment"></div>
+  </body>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script>
+    console.log("here");
+    $.getJSON( "data/unemployment.json", function( data ) {
+      var items = [];
+      console.log("in here");
+      console.log(data);
+      $.each( data, function( key, val ) {
+        items.push( "<li id='" + key + "'>" + val + "</li>" );
+      });
+    
+      $( "<ul/>", {
+        "class": "my-new-list",
+        html: items.join( "" )
+      }).appendTo( "body" );
+    });
+    $('#unemployment').html("test");
+  </script>
+</html>
+
